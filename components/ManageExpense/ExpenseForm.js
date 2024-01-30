@@ -81,7 +81,7 @@ function ExpenseForm({ submitButtonLabel, onCancel, onSubmit, defaultValues }) {
           textInputConfig={{
             keyboardType: "decimal-pad",
             onChangeText: inputChangedHandler.bind(this, "amount"),
-            value: inputs.amount,
+            value: inputs.amount.value,
           }}
         />
         <Input
@@ -92,7 +92,7 @@ function ExpenseForm({ submitButtonLabel, onCancel, onSubmit, defaultValues }) {
             placeholder: "YYYY-MM-DD",
             maxLength: 10,
             onChangeText: inputChangedHandler.bind(this, "date"),
-            value: inputs.date,
+            value: inputs.date.value,
           }}
         />
       </View>
@@ -101,10 +101,8 @@ function ExpenseForm({ submitButtonLabel, onCancel, onSubmit, defaultValues }) {
         invalid={!inputs.description.isValid}
         textInputConfig={{
           multiline: true,
-          // autoCapitalize: 'none'
-          // autoCorrect: false // default is true
           onChangeText: inputChangedHandler.bind(this, "description"),
-          value: inputs.description,
+          value: inputs.description.value,
         }}
       />
       {formIsInvalid && (
